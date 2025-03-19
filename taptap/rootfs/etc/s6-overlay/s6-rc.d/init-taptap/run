@@ -1,0 +1,35 @@
+#!/command/with-contenv bashio
+# shellcheck shell=bash
+# ==============================================================================
+# Li Tin O've Weedle Add-on: taptap
+# Configures TapTap to MQTT bridge
+# ==============================================================================
+
+if ! bashio::fs.directory_exists /var/run/taptap; then
+    mkdir -p /var/run/taptap
+    #chown -R taptap:taptap /var/run/taptap
+fi
+
+# Generate Upstream configuration
+bashio::var.json \
+    mqtt_server "$(bashio::config 'taptap_mqtt_server')" \
+    mqtt_port "$(bashio::config 'taptap_mqtt_port')" \
+    mqtt_qos "$(bashio::config 'taptap_mqtt_port')" \
+    mqtt_timeout "$(bashio::config 'taptap_mqtt_timeout')" \
+    mqtt_user "$(bashio::config 'taptap_mqtt_user')" \
+    mqtt_pass "$(bashio::config 'taptap_mqtt_pass')" \
+    taptap_serial "$(bashio::config 'taptap_taptap_serial')" \
+    taptap_address "$(bashio::config 'taptap_taptap_')" \
+    taptap_port "$(bashio::config 'taptap_taptap_')" \
+    taptap_module_ids "$(bashio::config 'taptap_taptap_module_ids')" \
+    taptap_module_names "$(bashio::config 'taptap_taptap_module_names')" \
+    taptap_topic_prefix "$(bashio::config 'taptap_topic_prefix')" \
+    taptap_topic_name "$(bashio::config 'taptap_taptap_topic_name')" \
+    taptap_timeout "$(bashio::config 'taptap_taptap_timeout')" \
+    taptap_update "$(bashio::config 'taptap_taptap_update')" \
+    ha_discovery_prefix "$(bashio::config 'taptap_ha_discovery_prefix')" \
+    ha_birth_topic "$(bashio::config 'taptap_ha_birth_topic')" \
+    ha_entity_availability "$(bashio::config 'taptap_ha_entity_availability')" \
+    | tempio \
+        -template /etc/taptap/config.gtpl \
+        -out /usr/bin/taptap/config.ini
