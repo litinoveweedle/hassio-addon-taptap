@@ -6,7 +6,7 @@
 - requires configured Home Assistant MQTT integration
 - requires Modbus to Ethernet convertor (optionaly Modbus to USB/Serial dongle)
     - set Modbus communication to 38400b, databits 8, stopbits 1, Flow control None
-    - set mode to Modbus TCP to RTU
+    - set convertor mode to Modbus TCP Server    
     - remember IP address and TCp port of converter to set in the addon configuration later
 - Modbus convertor has to connected to Tigo CCA gateway
   - connect convertor to connector named Gateway on Tigo CCA gateway
