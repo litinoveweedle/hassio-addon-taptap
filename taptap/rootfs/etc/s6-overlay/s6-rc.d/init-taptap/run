@@ -19,8 +19,8 @@ bashio::var.json \
     mqtt_user "$(bashio::config 'taptap_mqtt_user')" \
     mqtt_pass "$(bashio::config 'taptap_mqtt_pass')" \
     taptap_serial "$(bashio::config 'taptap_taptap_serial')" \
-    taptap_address "$(bashio::config 'taptap_taptap_')" \
-    taptap_port "$(bashio::config 'taptap_taptap_')" \
+    taptap_address "$(bashio::config 'taptap_taptap_address')" \
+    taptap_port "$(bashio::config 'taptap_taptap_port')" \
     taptap_module_ids "$(bashio::config 'taptap_taptap_module_ids')" \
     taptap_module_names "$(bashio::config 'taptap_taptap_module_names')" \
     taptap_topic_prefix "$(bashio::config 'taptap_topic_prefix')" \
