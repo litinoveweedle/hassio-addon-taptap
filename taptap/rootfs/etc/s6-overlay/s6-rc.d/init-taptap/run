@@ -10,7 +10,7 @@ if ! bashio::fs.directory_exists /var/run/taptap; then
     #chown -R taptap:taptap /var/run/taptap
 fi
 
-# Generate Upstream configuration
+# Generate taptap-mqtt configuration
 bashio::var.json \
     mqtt_server "$(bashio::config 'taptap_mqtt_server')" \
     mqtt_port "$(bashio::config 'taptap_mqtt_port')" \

@@ -11,6 +11,7 @@ RUN apk upgrade --no-cache && apk add --no-cache python3 py3-pip
 ARG TAPTAP_VERSION BUILD_ARCH
 RUN \
     mkdir /usr/bin/taptap; \
+    chmod 755 /usr/bin/taptap; \
     if [ "${BUILD_ARCH}" = "aarch64" ]; then \
     TAPTAP_ARCH="musl-arm64"; \
     elif [ "${BUILD_ARCH}" = "amd64" ]; then \
@@ -34,9 +35,9 @@ RUN \
 # Get taptap-mqtt bridge
 ARG TAPTAP_MQTT_VERSION
 RUN \
-    curl -sSLf -o /tmp/taptap-mqtt.zip \
-    "https://github.com/litinoveweedle/taptap-mqtt/archive/refs/tags/v${TAPTAP_MQTT_VERSION}.zip"; \
-    unzip taptap-mqtt.zip; \
+    curl -sSLf -o /tmp/taptap-mqtt.tgz \
+    "https://github.com/litinoveweedle/taptap-mqtt/archive/refs/tags/v${TAPTAP_MQTT_VERSION}.tar.gz"; \
+    tar -xzvf taptap-mqtt.tgz; \
     cp taptap-mqtt-*/taptap-mqtt.py /usr/bin/taptap/; \
     chmod 755 /usr/bin/taptap/taptap-mqtt.py; \
     pip install -r taptap-mqtt-*/requirements.txt; \
