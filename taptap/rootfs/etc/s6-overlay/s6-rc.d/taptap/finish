@@ -7,10 +7,9 @@ declare exit_code
 readonly exit_code_container=$(</run/s6-linux-init-container-results/exitcode)
 readonly exit_code_service="${1}"
 readonly exit_code_signal="${2}"
-readonly service="netflow2ng"
 
 bashio::log.info \
-  "Service ${service} exited with code ${exit_code_service}" \
+  "Service taptap exited with code ${exit_code_service}" \
   "(by signal ${exit_code_signal})"
 
 if [[ "${exit_code_service}" -eq 256 ]]; then
