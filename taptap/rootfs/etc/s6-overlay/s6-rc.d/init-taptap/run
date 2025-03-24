@@ -32,4 +32,4 @@ bashio::var.json \
     ha_entity_availability "$(bashio::config 'ha_entity_availability')" \
     | tempio \
         -template /etc/taptap/config.gtpl \
-        -out /usr/bin/taptap/config.ini
+        -out /etc/taptap/config.ini

@@ -35,6 +35,8 @@ RUN \
 # Get taptap-mqtt bridge
 ARG TAPTAP_MQTT_VERSION
 RUN \
+    mkdir /etc/taptap; \
+    chmod 755 /etc/taptap; \
     curl -sSLf -o /tmp/taptap-mqtt.tgz \
     "https://github.com/litinoveweedle/taptap-mqtt/archive/refs/tags/v${TAPTAP_MQTT_VERSION}.tar.gz"; \
     tar -xzvf taptap-mqtt.tgz; \
