@@ -16,7 +16,7 @@ PASS =
 
 
 [TAPTAP]
-BINARY = ./taptap
+BINARY = /usr/bin/taptap/taptap
 {{ if ne .taptap_serial "null" }}
 SERIAL = {{ .taptap_serial }} 
 ADDRESS =
