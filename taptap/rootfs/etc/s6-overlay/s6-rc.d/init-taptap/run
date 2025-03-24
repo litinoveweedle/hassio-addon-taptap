@@ -33,3 +33,5 @@ bashio::var.json \
     | tempio \
         -template /etc/taptap/config.gtpl \
         -out /etc/taptap/config.ini
+
+cat /etc/taptap/config.ini
