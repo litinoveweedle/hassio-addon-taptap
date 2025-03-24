@@ -23,7 +23,7 @@ bashio::var.json \
     taptap_port "$(bashio::config 'taptap_port')" \
     taptap_module_ids "$(bashio::config 'taptap_module_ids')" \
     taptap_module_names "$(bashio::config 'taptap_module_names')" \
-    taptap_topic_prefix "$(bashio::config 'topic_prefix')" \
+    taptap_topic_prefix "$(bashio::config 'taptap_topic_prefix')" \
     taptap_topic_name "$(bashio::config 'taptap_topic_name')" \
     taptap_timeout "$(bashio::config 'taptap_timeout')" \
     taptap_update "$(bashio::config 'taptap_update')" \
