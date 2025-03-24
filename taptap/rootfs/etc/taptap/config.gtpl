@@ -20,7 +20,7 @@ SERIAL =
 ADDRESS =
 {{ end }}
 {{ if .taptap_port }}
-PORT = {{ if .taptap_port }}
+PORT = {{ .taptap_port }}
 {{ else }}
 PORT = 502
 {{ end }}
