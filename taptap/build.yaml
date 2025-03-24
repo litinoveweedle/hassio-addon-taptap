@@ -13,4 +13,3 @@ labels:
 args:
   TAPTAP_VERSION: 0.1.1
   TAPTAP_MQTT_VERSION: 0.0.2
-
