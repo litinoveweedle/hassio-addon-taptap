@@ -3,16 +3,24 @@ SERVER = {{ .mqtt_server }}
 PORT = {{ .mqtt_port }}
 QOS = {{ .mqtt_qos }}
 TIMEOUT = {{ .mqtt_timeout }}
+{{ if ne .mqtt_user "null" }}
 USER = {{ .mqtt_user }}
+{{ else }}
+USER = 
+{{ end }}
+{{ if ne .mqtt_pass "null" }}
 PASS = {{ .mqtt_pass }}
+{{ else }}
+PASS = 
+{{ end }}
 
 
 [TAPTAP]
 BINARY = ./taptap
-{{ if .taptap_serial }} 
+{{ if ne .taptap_serial "null" }}
 SERIAL = {{ .taptap_serial }} 
 ADDRESS =
-{{ else if .taptap_address }}
+{{ else if ne .taptap_address "null" }}
 SERIAL =
 ADDRESS = {{ .taptap_address }}
 {{ else }}
